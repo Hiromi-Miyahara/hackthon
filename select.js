@@ -1,3 +1,6 @@
+
+var date = new Date();
+
 const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database('db.sqlite3');
 
@@ -12,5 +15,7 @@ db.all(sql, [], (err, rows) => {
   });
 });
 
+if (date==sql)
+  console.log("時間が一致！");
 
 db.close();
