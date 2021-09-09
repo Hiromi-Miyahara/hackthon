@@ -22,8 +22,8 @@ def create(request):
         post.save()
         return redirect(to='/posts')
     params = {
-        'form': PostForm(),    
-    }       
+        'form': PostForm(),
+    }
     return render(request,'posts/create.html',params)
 
 #問題編集ページ
@@ -35,7 +35,7 @@ def edit(request, num):
         return redirect(to='/posts')
     params = {
         'id':num,
-        'form': PostForm(instance=obj), 
+        'form': PostForm(instance=obj),
     }
     return render(request, 'posts/edit.html', params)
 
@@ -67,7 +67,7 @@ def tyousen(request, num):
                 'kaitou_hyouzi':'',
                 }
             dic_seikai['kaitou_hyouzi'] = kaitouview# 文字列をdic_seikaiの要素の'kaitou_hyouzi'keyに対応する値として定義
-            return render(request, 'posts/seikai.html', dic_seikai)  
+            return render(request, 'posts/seikai.html', dic_seikai)
         else:# 不正解の場合の処理
             dic_fuseikai = {
                 'pulldown':obj.pulldown,# models.pyのpulldownフィールドのみを抽出。
@@ -78,11 +78,11 @@ def tyousen(request, num):
                 'kaitou_hyouzi':'',
                 }
             dic_fuseikai['kaitou_hyouzi'] = kaitouview# 文字列をdic_seikaiの要素の'kaitou_hyouzi'keyに対応する値として定義
-            return render(request, 'posts/fuseikai.html', dic_fuseikai) 
+            return render(request, 'posts/fuseikai.html', dic_fuseikai)
     params = {
         'pulldown':obj.pulldown,
         'text':obj.text,
         'id':num,
     }
-    return render(request, 'posts/tyousen.html', params) 
+    return render(request, 'posts/tyousen.html', params)
 # Create your views here.

@@ -12,11 +12,11 @@ Notification.requestPermission(function(result) {
       alert('リクエスト結果：通知許可されました！！');
     }
   })
-
+  var determinedtime = 22
 const checkTime = function() {
     const currentTime = new Date();
     const hour = currentTime.getHours();
-      if (hour ==22) {var greet = new Notification("Hello World")};
+      if (hour ==determinedtime) {var greet = new Notification("Hello World")};
       greet.addEventListener('click',function(){
         window.open('https://www.youtube.com/watch?v=ufKn_OXBbYI');
       });
@@ -24,4 +24,4 @@ const checkTime = function() {
 };
 
 
-//その日の問題のノルマを特定時間までに完了していない場合に通知を送る。→webの操作履歴が必要？、History API　問題をやっていない場合、windowsの更新画面位の頻度で通知が来る
+//データを取得に成功、それらと現在時刻の一致で通知を作成、
