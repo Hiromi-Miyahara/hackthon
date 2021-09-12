@@ -1,22 +1,13 @@
 
 window.onload = function() {
-   Notification.requestPermission();
-   setInterval(checkTime, 6000);    //現在10分ごとのプログラム、本番では6倍にすること
+  Notification.requestPermission();
+   setInterval(checkTime, 3600000);    //現在10分ごとのプログラム、本番では6倍にすること
 };
-Notification.requestPermission(function(result) {
-    if (result === 'denied') {
-      alert('リクエスト結果：通知許可されませんでした');
-    } else if (result === 'default') {
-      alert('リクエスト結果：通知可能か不明です');
-    } else if (result === 'granted') {
-      alert('リクエスト結果：通知許可されました！！');
-    }
-  })
-  var determinedtime = 22
+
 const checkTime = function() {
     const currentTime = new Date();
     const hour = currentTime.getHours();
-      if (hour ==determinedtime) {var greet = new Notification("Hello World")};
+      if (hour ==18) {var greet = new Notification("こんにちは、今日は問題解いたかな？")};
       greet.addEventListener('click',function(){
         window.open('https://www.youtube.com/watch?v=ufKn_OXBbYI');
       });
